@@ -1,0 +1,14 @@
+type Seller {
+    id: ID!
+    name: String!
+    address: String
+}
+
+input InputSeller {
+    name: String!
+    address: String
+}
+
+extend type Mutation {
+    newSeller(input: InputSeller!): Seller!
+}
