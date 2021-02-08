@@ -61,10 +61,6 @@
 			<artifactId>graphiql-spring-boot-starter</artifactId>
 			<version>${graphiql.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>
