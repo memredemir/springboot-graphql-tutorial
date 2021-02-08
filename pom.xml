@@ -15,13 +15,6 @@
 	<description>Demo project for Spring Boot GraphQL</description>
 
 	<properties>
-<!--		<resource>-->
-<!--			<directory>src/main/resources</directory>-->
-<!--			<includes>-->
-<!--				<include>**/*.properties</include>-->
-<!--				<include>**/*.graphqls</include>-->
-<!--			</includes>-->
-<!--		</resource>-->
 		<java.version>11</java.version>
 		<graphql.boot.version>5.0.2</graphql.boot.version>
 		<graphql.java.version>5.2.4</graphql.java.version>
@@ -67,6 +60,10 @@
 			<groupId>com.graphql-java</groupId>
 			<artifactId>graphiql-spring-boot-starter</artifactId>
 			<version>${graphiql.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 	</dependencies>
 

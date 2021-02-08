@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  db-mysql:
+    container_name: db-mysql
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=graphql-tutorial
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    ports:
+      - 3307:3306
+    networks:
+      - api_network
+  app-graphql:
+    container_name: graphql-server
+    image: graphql-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: on-failure
+    depends_on:
+      - db-mysql
+    ports:
+      - 8080:8080
+    networks:
+      - api_network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/graphql-tutorial?allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    command: "mvn clean spring-boot:run"
+
+networks:
+  api_network:
