@@ -4,6 +4,7 @@ services:
   db-mysql:
     container_name: db-mysql
     image: mysql:8.0
+    restart: on-failure
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=graphql-tutorial
@@ -26,6 +27,8 @@ services:
       - 8080:8080
     networks:
       - api_network
+    links:
+      - db-mysql:db-mysql
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/graphql-tutorial?allowPublicKeyRetrieval=true&useSSL=false
       SPRING_DATASOURCE_USERNAME: root
@@ -34,3 +37,4 @@ services:
 
 networks:
   api_network:
+

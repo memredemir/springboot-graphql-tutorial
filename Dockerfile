@@ -12,4 +12,4 @@ RUN mvn -f /home/app/pom.xml clean package -DskipTests
 #
 FROM adoptopenjdk/openjdk11:ubi
 COPY --from=build /home/app/target/example-0.0.1-SNAPSHOT.jar /usr/local/lib/app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/app.jar"]
